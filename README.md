@@ -23,6 +23,7 @@ Procedure to setup TwittClo app
  cd twittclo
  django-admin.py startapp twittclo_app
  mkdir twittclo/static twittclo/templates twittclo_app/static
+ # Now download the rep and copy and replace all its contents into the twittclo folder
  python manage.py syncdb
  python manage.py schemamigration twittclo_app --initial
  python manage.py migrate twittclo_app
