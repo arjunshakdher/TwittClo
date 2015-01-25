@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet/less" href="{{ STATIC_URL }}style.less">
+    <script src="{{ STATIC_URL }}less.js"></script>
+</head>
+<body>twittclo
+    <header>
+        <div class="wrapper">
+            <img src="{{ STATIC_URL }}gfx/logonew.png">
+            {% block login %}
+            <a href="/">Home&nbsp&nbsp&nbsp&nbsp</a>
+            <a href="/users/">Public Profiles&nbsp&nbsp&nbsp&nbsp</a>
+            <a href="/users/{{ username }}">My Profile&nbsp&nbsp&nbsp&nbsp</a>
+            <a href="/twittclos">Public Twitts&nbsp&nbsp&nbsp&nbsp</a>
+            <form action="/logout">
+                <input type="submit" id="btnLogOut" value="Log Out">
+            </form>
+            {% endblock %}
+        </div>
+    </header>
+    <div id="content">
+        <div class="wrapper">
+            {% block flash %}
+            {% if auth_form.non_field_errors or user_form.non_field_errors or twittclo_form.errors %}
+            <div class="flash error">
+                {{ auth_form.non_field_errors }}
+                {{ user_form.non_field_errors }}
+                {{ twittclo_form.content.errors }}
+            </div>
+            {% endif %}
+            {% if notice %}
+            <div class="flash notice">
+                {{ notice }}
+            </div>
+            {% endif %}
+            {% endblock %}
+ 
+            {% block content %}
+ 
+            {% endblock %}
+        </div>
+    </div>
+    <footer>
+<center>
+        <div class="wrapper">
+            TwittClo - 2015 Arjun Shakdher - www.arjunshakdher.in
+                    </div></center>
+    </footer>
+</body>
+</html>

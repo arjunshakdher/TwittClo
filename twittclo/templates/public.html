@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+    <div class="panel right">
+        <h1>Create a Twitt!</h1>
+        <p>
+            <form action="/submit" method="post">
+            {% for field in twittclo_form %}{% csrf_token %}
+            {{ field }}
+            {% endfor %}
+            <input type="hidden" value="{{ next_url }}" name="next_url">
+            <input type="submit" value="Twitt!">
+            </form>
+        </p>
+    </div>
+    <div class="panel left">
+        <h1>Public Twitts</h1>
+        {% for twittclo in twittclos %}
+        <div class="twittcloWrapper">
+            <img class="avatar" src="{{ twittclo.user.profile.gravatar_url }}">
+            <span class="name">{{ twittclo.user.first_name }}</span>@{{ twittclo.user.username }}
+            <span class="time">{{ twittclo.creation_date|timesince }}</span>
+            <p>{{ twittclo.content }}</p>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

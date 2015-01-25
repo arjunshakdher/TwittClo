@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block login %}
+    {% with user.username as username %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+ 
+{% block content %}
+    <div class="panel right">
+        <h1>Create a Twitt!</h1>
+        <p>
+            <form action="/submit" method="post">
+            {% for field in twittclo_form %}{% csrf_token %}
+            {{ field }}
+            {% endfor %}
+            <input type="hidden" value="{{ next_url }}" name="next_url">
+            <input type="submit" value="Twitt!">
+            </form>
+        </p>
+    </div>
+    <div class="panel left">
+        <h1>Buddies' Twitts</h1>
+        {% for twittclo in twittclos %}
+        <div class="twittcloWrapper">
+            <a href="/users/{{ twittclo.user.username }}">
+                <img class="avatar" src="{{ STATIC_URL}}gfx/egg.png">
+                <span class="name">{{ twittclo.user.first_name }}</span>
+            </a>
+            @{{ twittclo.user.username }}
+            <p>
+                {{ twittclo.content }}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
