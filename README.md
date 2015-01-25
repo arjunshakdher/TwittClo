@@ -1,8 +1,9 @@
 TwittClo
 ==============
 Twitter Clone using Django/Python
-This web app is created using python 2.7.6 and Django 1.4
 --------------
+This web app is created using python 2.7.6 and Django 1.4
+
 Procedure for setting up Django, Virtualenv, South
 
 ```  
