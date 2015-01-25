@@ -10,7 +10,7 @@
         <h1>{{ user.first_name }}'s Profile</h1>
         <div class="twittcloWrapper">
             <a href="/users/{{ user.username }}">
-                <img class="avatar" src="{{ user.profile.gravatar_url }}">
+                <img class="avatar" src="{{ STATIC_URL}}gfx/egg.png">
                 <span class="name">{{ user.first_name }}</span>
             </a>
                 @{{ user.username }}
@@ -34,7 +34,7 @@
         {% for twittclo in twittclos %}
         <div class="twittcloWrapper">
             <a href="/users/{{ user.username }}">
-                <img class="avatar" src="{{ user.profile.gravatar_url }}">
+                <img class="avatar" src="{{ STATIC_URL}}gfx/egg.png">
                 <span class="name">{{ twittclo.user.first_name }}</span>
             </a>
             @{{ twittclo.user.username }}

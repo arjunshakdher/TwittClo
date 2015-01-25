@@ -17,7 +17,7 @@
         <h1>Public Twitts</h1>
         {% for twittclo in twittclos %}
         <div class="twittcloWrapper">
-            <img class="avatar" src="{{ twittclo.user.profile.gravatar_url }}">
+            <img class="avatar" src="{{ STATIC_URL}}gfx/egg.png">
             <span class="name">{{ twittclo.user.first_name }}</span>@{{ twittclo.user.username }}
             <span class="time">{{ twittclo.creation_date|timesince }}</span>
             <p>{{ twittclo.content }}</p>
