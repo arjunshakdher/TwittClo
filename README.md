@@ -10,7 +10,10 @@ Procedure for setting up Django, Virtualenv, South
  curl http://python-distribute.org/distribute_setup.py | sudo python
  curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | sudo python
  sudo pip install virtualenv
+ virtualenv --no-site-packages twittclo_env
+ source twittclo_env/bin/activate
  pip install Django==1.4
+ pip install South
 ```
 --------------
 Procedure to setup TwittClo app
